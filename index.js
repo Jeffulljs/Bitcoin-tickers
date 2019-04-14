@@ -14,9 +14,15 @@ app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html"); 
 });
 
+// utilisation de npm request.
+
 app.post('/', function (req, res) {
     
-    console.log(req.body.crypto);
+    request('https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD', function (error, response, body) {
+        
+        console.log(response.statusCode);//permet d'avoir un code d'etat d'une  html requete.
+    });
+        
 });
 
 app.listen(3000, function () {
