@@ -20,7 +20,16 @@ app.post('/', function (req, res) {
     
     request('https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD', function (error, response, body) {
         
-        console.log(response.statusCode);//permet d'avoir un code d'etat d'une  html requete.
+        //console.log(body);
+
+        let data = JSON.parse(body);
+        let price = data.last;
+
+        console.log(price);
+        
+
+        
+       // console.log(response.statusCode);//permet d'avoir un code d'etat d'une  html requete.
     });
         
 });
